@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>或缺和失去的焦点时</title>
+	<script type="text/javascript">
+		window.onload =function(){
+			var strToJSON = function (str) {
+				return typeof JSON == "object" ? JSON.parse(str) : (new Function ("return" + str))()
+			},
+			setCss = function (_this, cssOpen) {
+				if (!_this || _this.nodeType ===3 || _this.nodeType === 8 || !_this.style) {
+					return ;
+				}
+				for (var cs in cssOpen) {
+					_this.style[cs] = cssOpen[cs]
+				}
+				return _this
+			},
+			autoUpdateCss = document.getElementById('autoUpdateCss'),
+			fCss = autoUpdateCss.getAttribute('data-fCss'),
+			bCss = autoUpdateCss.getAttribute('date-bCss'),
+			bClass = autoUpdateCss.getAttribute('data-bClass'),
+			fClass = autoUpdateCss.getAttribute('data-fClass');
+
+			autoUpdateCss.onfocus = function() {
+				fCss && setCss(this, strToJSON)
+				fClass && (this.className = fClass)
+			}
+
+			autoUpdateCss.onblur = function () {
+				bCss && setCss(this, strToJSON)
+				bClass && (this.className = bClass)
+			}
+		}
+
+
+	</script>
+</head>
+<body>
+	<h2>获取、失去焦点时改变样式</h2>
+	<input type="text" value="修改样式" data-fClass="fborder" data-bClass="bborder" data-fCss='{"color":"red"}' data-bCss='{"color":"green"}' id="autoUpdateCss"></input>
+</body>
+</html>
