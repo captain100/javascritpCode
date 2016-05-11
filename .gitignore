@@ -1,9 +1,4 @@
 .DS_Store
 npm-debug.log
 node_modules/
-dist/*.html
-dist/*.js
-dist/*.map
-dist/*.php
 .idea
-test.html

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--网站编码格式，UTF-8 国际编码，GBK或 gb2312 中文编码-->
+    <meta charset="UTF-8">
+    <meta name="Keywords" content="关键词一，关键词二">
+    <meta name="Description" content="网站描述内容">
+    <meta name="Author" content="">
+    <title>Document</title>
+</head>
+<body>
+    <div id="out">
+        <p>我是路人甲</p>
+        <div id="middle">
+            <div id="inner">
+                最里面的
+            </div>
+            <p>我是路人乙</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var out = document.getElementById('out')
+        var middle = document.getElementById('middle')
+        var inner = document.getElementById('inner')
+        out.addEventListener('click', function(){alert('我是最外面的')}, false)
+        middle.addEventListener('click', function(){alert('我是最中间的')}, false)
+        inner.addEventListener('click', function(){alert('我是最里面的')}, true)
+    </script>
+
+</body>
+</html>
